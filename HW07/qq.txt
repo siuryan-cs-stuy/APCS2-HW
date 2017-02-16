@@ -1,0 +1,32 @@
+Ryan Siu
+APCS2 pd8
+HW07 -- Xiang's Troubles
+2017-02-16
+
+Number of solutions do not include transformations.
+
+2x2: 0
+No matter where you put the first queen, there is no legal space for the second
+queen.
+
+3x3: 0
+The first and second queens can be placed a knight's move away from each other,
+but there is no legal space for the third queen afterwards.
+
+4x4: 1
+The 4 queens are all a knight's move away from each other.
+
+5x5: 2
+The 4x4 case can be augmented by adding a queen in the corner. 
+
+6x6: 1
+There is only 1 6x6 case, where 3 queens on half the board are a knight's move
+away from each other, and the other 3 queens on the other half are also a
+knight's move away from each other. This case can be rotated, but there is
+only 1 unique case.
+
+7x7: >2
+Can be done augmenting 6x6 with a corner queen. Can also be solved in another way.
+
+8x8: >2
+Should be more than the number for 7x7, because as the board gets bigger, there should be more solutions.
