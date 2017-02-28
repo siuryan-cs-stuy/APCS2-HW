@@ -100,20 +100,20 @@ class TourFinder
 	if ( solved ) System.exit(0);
 
 	//primary base case: tour completed
-	if ( moves  ) {
-	    /* YOUR KODE HERE */
+	if ( moves >= sideLength * sideLength ) {
+	    solved = true;
 	}
 	//other base case: stepped off board or onto visited cell
-	if ( /* YOUR KODE HERE */ ) {
-	    /* YOUR KODE HERE */
+	if ( board[y][x] != 0 ) {
+	    return;
 	}
 	//otherwise, mark current location
 	//and recursively generate tour possibilities from current pos
 	else {
 
-	    /* YOUR KODE HERE */
+	    board[y][x] = moves;
 
-	    //delay(1000); //uncomment to slow down enough to view
+	    delay(1000); //uncomment to slow down enough to view
 
 	    /*======================================
 	      Recursively try to solve (find tour) from 
@@ -125,11 +125,16 @@ class TourFinder
 	      . h . a .
 	      ======================================*/
 
-	    /* YOUR KODE HERE */
+	    int xMove[] = { 1,  2, 2, 2, -1, -2, -2, -1};
+	    int yMove[] = {-2, -1, 1, 2,  2,  1, -1, -2};
+
+	    for (int i = 0; i < 8; i++) {
+		findTour( x + xMove[i], y + yMove[i], moves+1);
+	    }
 
 	    //If made it this far, path did not lead to tour, so back up.
 
-	    /* YOUR KODE HERE */
+	    board[y][x] = 0;
 
 	    System.out.println( this ); //refresh screen
 	}
