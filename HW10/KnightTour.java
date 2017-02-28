@@ -94,13 +94,13 @@ class TourFinder
      *********************************************/
     public void findTour( int x, int y, int moves ) 
     {
-	//delay(50); //slow it down enough to be followable
+	delay(50); //slow it down enough to be followable
 
 	//if a tour has been completed, stop animation
 	if ( solved ) System.exit(0);
 
 	//primary base case: tour completed
-	if ( /* YOUR KODE HERE */ ) {
+	if ( moves  ) {
 	    /* YOUR KODE HERE */
 	}
 	//other base case: stepped off board or onto visited cell
