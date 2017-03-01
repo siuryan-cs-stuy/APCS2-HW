@@ -1,26 +1,19 @@
+// Ryan Siu
+// APCS2 pd5
+// HW10 -- We On Award Tour
+// 2016-02-28
+
 /*======================================
   class KnightTour
   Animates a Knight's Tour of a square chess board.
 
   Mean execution times for boards of size n*n:
-  n=5   __s    over __ executions 
-  n=6   __s    over __ executions
-  n=7   __s    over __ executions
-  n=8   __s    over __ executions
+  Using a starting position of top left corner,
+  n=5   0.116s    over 10 executions 
+  n=6   0.131s    over 10 executions
+  n=7   0.863s    over 10 executions
+  n=8   0.330s    over 10 executions
   ======================================*/
-
-/***
- * USAGE:
- * $ javac KnightTour.java
- * $ java KnightTour
- * $ java KnightTour [N]
- *  
- * (default N value: 8)
- * 
- * POSIX TIP: to measure execution time, use time program:
- * $ time java KnightTour 5
- ***/
-
 
 import java.io.*;
 import java.util.*;
@@ -59,7 +52,7 @@ class TourFinder
     public String toString() 
     {
 	//send ANSI code "ESC[0;0H" to place cursor in upper left
-	String retStr = "[0;0H";  
+	String retStr = "[0;0H";
 	//emacs shortcut: C-q, then press ESC
 	//emacs shortcut: M-x quoted-insert, then press ESC
 
@@ -94,14 +87,15 @@ class TourFinder
      *********************************************/
     public void findTour( int x, int y, int moves ) 
     {
-	delay(50); //slow it down enough to be followable
+	//delay(50); //slow it down enough to be followable
 
 	//if a tour has been completed, stop animation
 	if ( solved ) System.exit(0);
 
 	//primary base case: tour completed
-	if ( moves >= sideLength * sideLength ) {
+	if ( moves > sideLength * sideLength ) {
 	    solved = true;
+	    //System.out.println( this ); //refresh screen
 	}
 	//other base case: stepped off board or onto visited cell
 	if ( board[y][x] != 0 ) {
@@ -113,7 +107,7 @@ class TourFinder
 
 	    board[y][x] = moves;
 
-	    delay(1000); //uncomment to slow down enough to view
+	    //delay(1000); //uncomment to slow down enough to view
 
 	    /*======================================
 	      Recursively try to solve (find tour) from 
@@ -125,7 +119,7 @@ class TourFinder
 	      . h . a .
 	      ======================================*/
 
-	    int xMove[] = { 1,  2, 2, 2, -1, -2, -2, -1};
+	    int xMove[] = { 1,  2, 2, 1, -1, -2, -2, -1};
 	    int yMove[] = {-2, -1, 1, 2,  2,  1, -1, -2};
 
 	    for (int i = 0; i < 8; i++) {
@@ -136,7 +130,7 @@ class TourFinder
 
 	    board[y][x] = 0;
 
-	    System.out.println( this ); //refresh screen
+	    //System.out.println( this ); //refresh screen
 	}
     }//end findTour()
 
@@ -165,12 +159,12 @@ public class KnightTour
 	System.out.println( tf );
 
 	//for random starting location, use lines below:
-	//int startX = 2 + (int)( n * Math.random() );
-	//int startY = 2 + (int)( n * Math.random() );
-	//tf.findTour( startX, startY, 1 );   // 1 or 0 ?
+	int startX = 2 + (int)( n * Math.random() );
+	int startY = 2 + (int)( n * Math.random() );
+	tf.findTour( startX, startY, 1 );   // 1 or 0 ?
 
 	//for fixed starting location, use line below:
-	tf.findTour( 2, 2, 1 );
+	//tf.findTour( 2, 2, 1 );
 
     }//end main()
 

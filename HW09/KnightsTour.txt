@@ -1,0 +1,12 @@
+Ryan Siu
+APCS2 pd5
+HW09 -- Get On the Bus
+2017-02-27
+
+Similar to the algorithm for the n-queens problem...
+
+Starting in the top left corner:
+1. Move the knight to the 1) highest and 2) furthest right legal move legal move possible
+2. If there is another legal move, go to 1.
+3. If there are no legal moves and all the spaces have been touched, a solution has been found.
+4. Otherwise, rewind moves until you can make a legal move that has not been made before, and go to 1.
