@@ -95,7 +95,7 @@ class TourFinder
 	//primary base case: tour completed
 	if ( moves > sideLength * sideLength ) {
 	    solved = true;
-	    //System.out.println( this ); //refresh screen
+	    System.out.println( this ); //refresh screen
 	}
 	//other base case: stepped off board or onto visited cell
 	if ( board[y][x] != 0 ) {
