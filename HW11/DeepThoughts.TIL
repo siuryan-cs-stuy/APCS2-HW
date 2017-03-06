@@ -1,0 +1,31 @@
+Ryan Siu
+APCS2 pd5
+HW11 -- Probing the Depths
+2017-03-01
+
+Mean execution times for boards of size n*n:
+  Using a random position,
+  n=5   0.248s    over 10 executions 
+  n=6   1.031s    over 10 executions
+  n=7   40.51s    over 5 executions
+  n=8   >30m      over 3 executions
+
+Section One
+1. Even if an open tour solution exists for an nxn board, there is not
+   necessarily an open tour from any starting position. Unlike a closed tour,
+   you cannot start at any square and enact that solution.
+2. If a closed tour solution exists, then a closed tour solution can be found
+   from any starting position because you can start at any point in the tour and
+   return to that point after traversing all the squares.
+3. The execution time seems to increase exponentially as n increases, starting
+   from below 1s to >30min.
+4. You can choose to move the knight down to a square that has less possible
+   moves, which will make the computer run all the fastest paths first, before
+   proceding to the larger ones.
+
+Section Two
+1. If you're on the exit, you're done.
+2. Move to a sqaure that has not previously been moved on.
+3. If you cannot move, go back to a square that has more than one possible
+   remaining move.
+4. Go to 1.
