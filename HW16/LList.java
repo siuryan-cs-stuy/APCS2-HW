@@ -15,12 +15,39 @@ public class LList implements List
     public LList( ) 
     {
 	_size = 0;
+	_head = null;
     }
 
 
     //--------------v  List interface methods  v--------------
 
-    /* YOUR IMPLEMENTATIONS HERE */
+    public boolean add( String x ) {
+	if (this.size() == 0) {
+	    _head = new LLNode( x, null );
+	    _size++;
+	    return true;
+	}
+	
+	LLNode currentNode = _head;
+	for (int i = 0; i < this.size()-1; i++) {
+	    currentNode = currentNode.getNext();
+	}
+	currentNode.setNext( new LLNode( x, null ) );
+	_size++;
+	return true;
+    }
+
+    public String get( int i ) {
+	LLNode currentNode = _head;
+	for (int j = 0; j < i; j++) {
+	    currentNode = currentNode.getNext();
+	}
+	return currentNode.getCargo();
+    }
+
+    public String set( int i, String x ) {
+	return "";
+    }
 
     //return number of nodes in list
     public int size() { return _size; } 
@@ -44,7 +71,7 @@ public class LList implements List
     //main method for testing
     public static void main( String[] args ) 
     {
-	/*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
+	
 	LList james = new LList();
 
 	System.out.println( james );
@@ -68,10 +95,12 @@ public class LList implements List
 
 	System.out.println( "2nd item is: " + james.get(1) );
 
+	/*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
 	james.set( 1, "got" );
 	System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
 
 	System.out.println( james );
+	
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     }
 

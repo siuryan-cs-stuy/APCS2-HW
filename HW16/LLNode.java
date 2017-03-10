@@ -48,7 +48,6 @@ public class LLNode
     //main method for testing
     public static void main( String[] args ) 
     {
-
 	
 	//Below is an exercise in creating a linked list...
 
@@ -60,15 +59,12 @@ public class LLNode
 
 	//Create a third node after the second
 	first.getNext().setNext( new LLNode( "cow", null ) );
-	/*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-	/* A naive list traversal:
+	
+	// A naive list traversal:
 	while( first != null ) {
 	    System.out.println( first );
 	    first = first.getNext();
 	}
-	*/
 
 	//Q: When head ptr moves to next node in list,
 	//   what happens to the node it just left?
