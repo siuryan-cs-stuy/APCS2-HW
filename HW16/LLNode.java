@@ -1,3 +1,8 @@
+// Ryan Siu
+// APCS2 pd5
+// HW100002a: We Got a Little Ol' Convoy...
+// 2017-03-11
+
 /*****************************************************
  * class LLNode
  * Implements a node, for use in lists and other container classes.

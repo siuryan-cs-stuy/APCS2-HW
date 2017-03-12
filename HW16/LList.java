@@ -1,3 +1,8 @@
+// Ryan Siu
+// APCS2 pd5
+// HW1016b: Rockin' Through the Night
+// 2017-03-11
+
 /*****************************************************
  * class LList
  * skeleton
@@ -46,7 +51,15 @@ public class LList implements List
     }
 
     public String set( int i, String x ) {
-	return "";
+	String temp = get(i);
+	
+        LLNode currentNode = _head;
+	for (int j = 0; j < i; j++) {
+	    currentNode = currentNode.getNext();
+	}
+
+	currentNode.setCargo(x);
+	return temp;
     }
 
     //return number of nodes in list
@@ -94,14 +107,12 @@ public class LList implements List
 	System.out.println( "size: " + james.size() );
 
 	System.out.println( "2nd item is: " + james.get(1) );
-
-	/*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
+	
 	james.set( 1, "got" );
 	System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
 
 	System.out.println( james );
-	
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
     }
 
 }//end class LList
