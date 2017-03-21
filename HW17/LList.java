@@ -1,7 +1,7 @@
 // Ryan Siu
 // APCS2 pd5
-// HW1016b: Rockin' Through the Night
-// 2017-03-11
+// HW17: Give and Take
+// 2017-03-13
 
 /*****************************************************
  * class LList
@@ -40,6 +40,39 @@ public class LList implements List
 	currentNode.setNext( new LLNode( x, null ) );
 	_size++;
 	return true;
+    }
+
+    public void add( int index, String newVal ) {
+	LLNode newNode = new LLNode( newVal, null );
+	if (index == 0) {
+	    newNode.setNext(_head);
+	    _head = newNode;
+	} else {
+	    LLNode currentNode = _head;
+	    for (int i = 0; i < index-1; i++) {
+		currentNode = currentNode.getNext();
+	    }
+	    LLNode addNode = currentNode.getNext();
+	    currentNode.setNext( newNode );
+	    newNode.setNext( addNode );
+	}
+    }
+
+    public String remove( int index ) {
+	if (index == 0) {
+	    String temp = _head.getCargo();
+	    _head = _head.getNext();
+	    return temp;
+	} else {
+	    LLNode currentNode = _head;
+	    for (int i = 0; i < index-1; i++) {
+		currentNode = currentNode.getNext();
+	    }
+	    LLNode removeNode = currentNode.getNext();
+	    currentNode.setNext( removeNode.getNext() );
+	
+	    return removeNode.getCargo();
+	}
     }
 
     public String get( int i ) {
@@ -110,8 +143,15 @@ public class LList implements List
 	
 	james.set( 1, "got" );
 	System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
-
 	System.out.println( james );
+
+	System.out.println( "Removing 2nd item..." );
+	james.remove(1);
+       	System.out.println( james );
+
+	System.out.println( "Adding 'hi' to index 3..." );
+	james.add( 3, "hi" );
+       	System.out.println( james );
 
     }
 
