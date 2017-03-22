@@ -248,32 +248,34 @@ public class LList<T> implements List<T>
 	public MyIterator() 
 	{
 	    //place dummy node in front of head
-            //...other housekeeping chores?
-            /* YOUR IMPLEMENTATION HERE */
+            //make okToRemove false because next() has not been called yet
 	    _dummy = new DLLNode<T>( null, null, _head );
 	    _head = _dummy;
-	    _okToRemove=false;
+	    _okToRemove = false;
 	}
 
 	//--------------v  Iterator interface methods  v-------------
 	//return true if iteration has more elements.
 	public boolean hasNext() 
 	{
-            return !(_dummy.getNext().equals(null));
+            return _dummy.getNext() != null;
 	}
 
 
 	//return next element in this iteration
 	public T next() 
 	{
-	    _okToRemove=true;
-	    _dummy=_dummy.getNext();
-            return (_dummy.getCargo());
+	    if ( _head.getCargo() == null && size() > 1) {
+		_head = _head.getNext();
+	    }
+	    _okToRemove = true;
+	    _dummy = _dummy.getNext();
+            return _dummy.getCargo();
 	}
 
 
 	//remove last element returned by this iterator (from last next() call)
-	public void remove() 
+	public void remove()
 	{
 	    if ( ! _okToRemove )
 		throw new IllegalStateException("must call next() beforehand");
@@ -282,17 +284,31 @@ public class LList<T> implements List<T>
 	    //If removing only remaining node...
 	    //maintain invariant that _dummy always points to a node
 	    //   (...so that hasNext() will not crash)
-
-            /* YOUR IMPLEMENTATION HERE */
-
+	    if ( size() <= 1 ) {
+		_dummy = new DLLNode( null, null, null );
+		_head = _dummy;
+	    }
+	    
 	    //if removing first node...
-            /* YOUR IMPLEMENTATION HERE */
+            else if ( _dummy == _head  ) {
+		removeFirst();
+		_dummy = new DLLNode( null, null, _head );
+		_head = _dummy;
+	    }
 
 	    //if removing last node...
-            /* YOUR IMPLEMENTATION HERE */
+            else if ( _dummy == _tail ) {
+		removeLast();
+		_dummy = _tail;
+	    }
 
 	    //if removing an interior node...
-            /* YOUR IMPLEMENTATION HERE */
+            else {
+	        DLLNode<T> next = _dummy.getNext();
+		DLLNode<T> prev = _dummy.getPrev();
+		prev.setNext(next);
+		next.setPrev(prev);
+	    }
 
 	    _size--; //decrement size attribute of outer class LList
 	}

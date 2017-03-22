@@ -1,3 +1,8 @@
+// Ryan Siu
+// APCS2 pd5
+// HW20 -- DeIteratour
+// 2017-03-20
+
 /*****************************************************
  * class ItrWork -- skeleton
  * Allows for familiarization with iterators
