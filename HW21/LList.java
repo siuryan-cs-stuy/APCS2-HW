@@ -1,3 +1,8 @@
+// Ryan Siu
+// APCS2 pd5
+// HW21 -- Make Itr Work
+// 2017-03-21
+
 /*****************************************************
  * class LList
  * Implements a linked list of DLLNodes.
