@@ -1,10 +1,14 @@
+// Ryan Siu
+// APCS2 pd5
+// HW23 -- Stack: What Is It Good For?
+// 2017-03-23
+
 /*****************************************************
  * class LatKtS (LatKeysToSuccess)
  * Driver class for Latkes.
  * Uses a stack to reverse a text string, check for sets of matching parens.
  * SKELETON
  *****************************************************/
-
 
 public class LatKtS 
 {
@@ -36,23 +40,53 @@ public class LatKtS
      *                allMatched( "" )            -> true
      **********************************************************/
     public static boolean allMatched( String s ) 
-    { 
-	return false;
+    {
+	Latkes l = new Latkes(s.length());
+	
+	for (int i = 0; i < s.length(); i++) {
+	    String ch = s.substring(i,i+1);
+	    if ( isOpen(ch) ) {
+		l.push(ch);
+	    } else {
+		if ( l.isEmpty() ) {
+		    return false;
+		}
+		String openCh = l.peek();
+		if ( isMatching( openCh, ch ) ) {
+		    l.pop();
+		} else {
+		    return false;
+		}
+	    }
+	}
+
+	return l.isEmpty();
+	
     }//end allMatched()
 
+    //helper method for allMatched(), returns whether string is an open parens
+    private static boolean isOpen( String ch ) {
+	return ch.equals("(") || ch.equals("[") || ch.equals("{");
+    }
+
+    //helper method for allMatched(), returns whether parens correspond
+    private static boolean isMatching( String openCh, String closeCh ) {
+	return ( openCh.equals("(") && closeCh.equals(")") ) ||
+	    ( openCh.equals("{") && closeCh.equals("}") ) ||
+	    ( openCh.equals("[") && closeCh.equals("]") );
+    }
 
     //main method to test
     public static void main( String[] args ) { 
 
 	System.out.println(flip("stressed"));
-	/*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+	
         System.out.println(allMatched( "({}[()])" )); //true
         System.out.println(allMatched( "([)]" ) ); //false
         System.out.println(allMatched( "(){([])}" ) ); //true
         System.out.println(allMatched( "](){([])}" ) ); //false
         System.out.println(allMatched( "(){([])}(" ) ); //false
         System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
-          ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
     }
 
 }//end class LatKtS
