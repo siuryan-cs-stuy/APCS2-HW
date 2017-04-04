@@ -1,9 +1,13 @@
+// Team Metonymy -- Ryan Siu, Tiffany Moi, Mohamed Tamara
+// APCS2 pd5
+// HW29 -- Stress is the Best
+// 2017-04-04
+
 /*****************************************************
- * Metonymy -- Ryan Siu, Tiffany Moi, Mohamed Tamara
- *
  * class DequeTester
  * used for testing methods
  ******************************************************/
+
 import java.util.NoSuchElementException;
 import java.util.ArrayList;
 
