@@ -17,7 +17,7 @@ public class DequeTester {
 
 	// Test using deque of Strings
 	System.out.println( "\nTesting deque of Strings" );
-	DLLDeque<String> stringDeque = new DLLDeque<String>(); //error if generic typing is not allowed
+	Deque<String> stringDeque = new DLLDeque<String>(); //error if generic typing is not allowed
 	System.out.println( stringDeque );
 	System.out.println( "\nAdding elements..." );
 	// a, b, c should be added to the deque
@@ -60,7 +60,7 @@ public class DequeTester {
 
 	// Test using deque of Objects
 	System.out.println( "\nTesting deque of Objects" );
-	DLLDeque mixDeque = new DLLDeque();
+	Deque mixDeque = new DLLDeque();
 	System.out.println( "\nAdding elements..." );
 	// elements should be added to the deque
 	mixDeque.addFirst( 1 );
