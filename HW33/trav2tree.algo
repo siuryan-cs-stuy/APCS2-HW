@@ -1,0 +1,24 @@
+Ryan Siu
+APCS2 pd5
+HW33 -- A Tree Grows in 251
+2017-04-26
+
+Requirements
+- You must be given an in- and either pre-/post-order traversals to guarantee one unique tree.
+- However, with at least 2 given traversals, it is possible to limit the number of distinct trees
+
+Given pre-/in-
+1. First node in pre is the root.
+2. Find the root node in in-. Anything to the left is on the left subtree, to the right the right subtree.
+3. Remove the first node in pre, go to 1 with the previously mentioned left subtree, then go to 1 again with the previously mentioned right subtree.
+
+Given post-/in-
+1. Last node in post is the root.
+2. Find the root node in in-. Anything to the left is on the left subtree, to the right the right subtree.
+3. Remove the first node in post-, go to 1 with the previously mentioned right subtree, then go to 1 again with the previously mentioned left subtree.
+
+Given pre-/post-
+1. First node in pre is the root.
+2. Remove the first node from pre and the last node from post.
+3. Find the first node in pre in post. This and nodes to the left will be the left subtree. The other nodes to the right will be the right subtree.
+4. Remove the first node in pre-. Go to 3 for the left subtree, chopping off the left subtree for pre-, then go to 3 for the right subtree, chopping off the right subtree for pre-.
