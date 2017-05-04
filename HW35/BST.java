@@ -130,7 +130,20 @@ public class BST
      *****************************************************/
     public int height()
     {
-        return 0;//find height of left/right subtree, get bigger, add 1
+        return height( _root );
+    }
+
+    public int height( TreeNode root )
+    {
+	if ( root == null ) {
+	    return 0;
+	} else {
+	    if ( height( root.getLeft() ) > height( root.getRight() ) ) {
+		return height( root.getLeft() ) + 1;
+	    } else {
+		return height( root.getRight() ) + 1;
+	    }
+	}
     }
 
 
@@ -140,7 +153,18 @@ public class BST
      *****************************************************/
     public int numLeaves()
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+	return numLeaves( _root );
+    }
+
+    public int numLeaves( TreeNode root )
+    {
+	if ( root == null ) {
+	    return 0;
+	} else if ( root.getLeft() == null && root.getRight() == null ) {
+	    return 1;
+	} else {
+	    return numLeaves( root.getLeft() ) + numLeaves( root.getRight() );
+	}
     }
 
 
@@ -156,6 +180,7 @@ public class BST
 	arbol.insert( 6 );
 	arbol.insert( 1 );
 	arbol.insert( 3 );
+	
 
 	System.out.println( "\npre-order traversal:" );
 	arbol.preOrderTrav();
@@ -175,6 +200,12 @@ public class BST
 	System.out.println( "\nSearching for 5" );
 	TreeNode t = arbol.search(5);
 	System.out.println( t.getValue() );
+
+	System.out.println( "\nHeight of tree" );
+	System.out.println( arbol.height() ); //3
+
+	System.out.println( "\nNumber of leaves on tree" );
+	System.out.println( arbol.numLeaves() ); //3
     }
 
 }//end class
