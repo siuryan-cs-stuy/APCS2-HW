@@ -1,3 +1,8 @@
+// Ryan Siu
+// APCS2 pd5
+// HW36 -- Prune Your Tree
+// 2017-05-17
+
 /*****************************************************
  * class BST
  * Implementation of the BINARY SEARCH TREE abstract data type (ADT) 
