@@ -374,11 +374,11 @@ public class BST
 	System.out.println();
 	System.out.println( arbol );
 	
-	arbol.remove(6);
+	arbol.remove(5);
 	System.out.println();
 	System.out.println( arbol );
 
-	arbol.remove(5);
+	arbol.remove(6);
 	System.out.println();
 	System.out.println( arbol );
 
