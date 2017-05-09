@@ -75,11 +75,13 @@ public class ALHeap
      * add(Integer) 
      * Inserts an element in the heap
      * Postcondition: Tree maintains heap property.
+     * Algorithm: Adds value to end of ArrayList, repeatedly
+                  compares that value to parent and swaps until
+                  heapness is restored
      *****************************************************/
     public void add( Integer addVal ) 
     {
-	// add at the end, compare with parent and swap if necessary to
-	// maintain heapness
+	// add value to the end
         _heap.add( addVal );
 	int pos = _heap.size() - 1;
 
@@ -97,6 +99,10 @@ public class ALHeap
      * removeMin()  ---  means of removing an element from heap
      * Removes and returns least element in heap.
      * Postcondition: Tree maintains heap property.
+     * Algorithm: Swaps value at front and end of ArrayList, removes
+                  the last value, then repeatedly compares that 
+                  value to children and swaps with the lesser child 
+                  until heapness is restored
      *****************************************************/
     public Integer removeMin() 
     {
